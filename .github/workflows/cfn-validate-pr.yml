@@ -28,7 +28,7 @@ jobs:
       
       - name: Deploy Stack
         run: |
-          stack-name="pr-test-stack-${{ github.events.pull_request.number }}"
+          stack_name="pr-test-stack-${{ github.events.pull_request.number }}"
           aws cloudformation create-stack --stack-name $stack_name --template_body file://cloudformation/s3-bucket.yml, --parameters ParameterKey=Environment,ParameterValue=test
       
       - name: Comment on PR
